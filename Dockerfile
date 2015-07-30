@@ -4,7 +4,7 @@ MAINTAINER Al Maline
 
 
 RUN apt-get -q update
-RUN apt-get -qy install git-core redis-server
+RUN apt-get -qy install git-core redis-server vi
 
 RUN npm install -g hubot yo generator-hubot coffee-script ;\
     npm config -g set strict-ssl false
