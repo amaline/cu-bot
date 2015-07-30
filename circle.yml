@@ -1,0 +1,18 @@
+machine:
+   services:
+      - docker
+
+dependencies:
+   override:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker build -t amaline/cu-bot .
+
+test:
+   override:
+      - docker inspect amaline/cu-bot
+
+deployment:
+  hub:
+   branch: master
+   commands:
+    - docker push amaline/cu-bot
