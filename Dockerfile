@@ -19,10 +19,9 @@ RUN update-ca-certificates
 ENV HOME /home/hubot
 ENV NODE_TLS_REJECT_UNAUTHORIZED 0
 
-RUN ls -l
 ADD ./run.sh /home/hubot/
 ADD ./external-scripts.json /home/hubot/
-RUN ls -l; chown hubot.hubot run.sh external-scripts.json
+RUN chown hubot.hubot /home/hubot/run.sh /home/hubot/external-scripts.json
 
 USER hubot
 WORKDIR /home/hubot
