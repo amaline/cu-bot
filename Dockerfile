@@ -22,7 +22,7 @@ ENV NODE_TLS_REJECT_UNAUTHORIZED 0
 USER hubot
 WORKDIR /home/hubot
 
-ADD external-scripts.json 
+ADD external-scripts.json external-scripts.json
 RUN npm install
 
 
