@@ -19,12 +19,12 @@ RUN update-ca-certificates
 ENV HOME /home/hubot
 ENV NODE_TLS_REJECT_UNAUTHORIZED 0
 
+USER hubot
+WORKDIR /home/hubot
+
 ADD external-scripts.json .
 RUN npm install
 
-USER hubot
-
-WORKDIR /home/hubot
 
 RUN yo hubot --owner "Al Maline <amaline@yahoo.com>" --name="cubot" --description="Corporate University Robot" --adapter=slack
 
