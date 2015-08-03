@@ -19,8 +19,8 @@ RUN update-ca-certificates
 ENV HOME /home/hubot
 ENV NODE_TLS_REJECT_UNAUTHORIZED 0
 
-ADD run.sh run.sh
-ADD external-scripts.json external-scripts.json
+ADD run.sh /home/hubot/run.sh
+ADD external-scripts.json /home/hubot/external-scripts.json
 RUN chown hubot.hubot run.sh external-scripts.json
 
 USER hubot
@@ -31,6 +31,7 @@ RUN yo hubot --owner "Al Maline <amaline@yahoo.com>" --name="cubot" --descriptio
 RUN ls -l; \
     cat external-scripts.json; \
     npm install; \
+    npm uninstall hubot-google-translate hubot-google-images hubot-pugme hubot-rules hubot-shipit; \
     ls node_modules
 
 # CMD HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN ./bin/hubot --adapter slack --alias !
