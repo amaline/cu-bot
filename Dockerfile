@@ -19,14 +19,15 @@ RUN update-ca-certificates
 ENV HOME /home/hubot
 ENV NODE_TLS_REJECT_UNAUTHORIZED 0
 
-ADD ./run.sh /home/hubot/
-ADD ./external-scripts.json /home/hubot/
-RUN chown hubot.hubot /home/hubot/run.sh /home/hubot/external-scripts.json
 
 USER hubot
 WORKDIR /home/hubot
 
 RUN yo hubot --owner "Al Maline <amaline@yahoo.com>" --name="cubot" --description="Corporate University Robot" --adapter=slack
+
+ADD ./run.sh /home/hubot/
+ADD ./external-scripts.json /home/hubot/
+RUN chown hubot.hubot /home/hubot/run.sh /home/hubot/external-scripts.json
 
 RUN ls -l; \
     cat external-scripts.json; \
