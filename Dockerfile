@@ -19,6 +19,9 @@ RUN update-ca-certificates
 ENV HOME /home/hubot
 ENV NODE_TLS_REJECT_UNAUTHORIZED 0
 
+ADD external-scripts.json .
+RUN npm install
+
 USER hubot
 
 WORKDIR /home/hubot
