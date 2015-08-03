@@ -4,6 +4,6 @@
   "hubot-heroku-keepalive",
   "hubot-maps",
   "hubot-redis-brain",
-  "git+https://github.com/amaline/cu-bot-scripts.git",
+  "cu-bot-scripts",
   "hubot-team"
 ]
