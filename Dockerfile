@@ -22,10 +22,11 @@ ENV NODE_TLS_REJECT_UNAUTHORIZED 0
 USER hubot
 WORKDIR /home/hubot
 
-ADD external-scripts.json external-scripts.json
-RUN npm install
-
-
 RUN yo hubot --owner "Al Maline <amaline@yahoo.com>" --name="cubot" --description="Corporate University Robot" --adapter=slack
 
-CMD HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN ./bin/hubot --adapter slack --alias !
+ADD run.sh run.sh
+ADD external-scripts.json external-scripts.json
+RUN ls -l && cat external-scripts.json && npm install && chmod +x run.sh
+
+# CMD HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN ./bin/hubot --adapter slack --alias !
+CMD ./run.sh
