@@ -28,7 +28,10 @@ WORKDIR /home/hubot
 
 RUN yo hubot --owner "Al Maline <amaline@yahoo.com>" --name="cubot" --description="Corporate University Robot" --adapter=slack
 
-RUN ls -l && cat external-scripts.json && npm install && chmod +x run.sh
+RUN ls -l; \
+    cat external-scripts.json; \
+    npm install; \
+    ls node_modules
 
 # CMD HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN ./bin/hubot --adapter slack --alias !
 CMD ./run.sh
