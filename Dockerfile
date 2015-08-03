@@ -27,7 +27,8 @@ RUN yo hubot --owner "Al Maline <amaline@yahoo.com>" --name="cubot" --descriptio
 
 ADD ./run.sh /home/hubot/
 ADD ./external-scripts.json /home/hubot/
-RUN chown hubot.hubot /home/hubot/run.sh /home/hubot/external-scripts.json
+#RUN chown hubot.hubot /home/hubot/run.sh /home/hubot/external-scripts.json
+RUN cd /home/hubot && ls -l /home/hubot
 
 RUN ls -l; \
     cat external-scripts.json; \
