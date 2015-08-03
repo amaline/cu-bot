@@ -31,7 +31,7 @@ ADD ./external-scripts.json /home/hubot/external-scripts.new
 RUN cd /home/hubot && ls -l /home/hubot
 
 RUN cp external-scripts.new external-scripts.json; \
-    npm install git+https://github.com/amaline/cu-bot-scripts.git; \
+    npm install git+https://github.com/amaline/cu-bot-scripts.git
 
 # CMD HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN ./bin/hubot --adapter slack --alias !
 CMD ./run.sh
