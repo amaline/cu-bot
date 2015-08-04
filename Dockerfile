@@ -14,7 +14,8 @@ RUN adduser --disabled-password --gecos "" hubot; \
 
 ADD ./certs /usr/local/share/ca-certificates/
 
-RUN update-ca-certificates
+RUN update-ca-certificates; \
+    wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 ENV HOME /home/hubot
 ENV NODE_TLS_REJECT_UNAUTHORIZED 0
@@ -31,7 +32,7 @@ ADD ./external-scripts.json /home/hubot/external-scripts.new
 RUN cd /home/hubot && ls -l /home/hubot
 
 RUN cp external-scripts.new external-scripts.json; \
-    npm install git+https://github.com/amaline/cu-bot-scripts.git
+    npm install git+https://github.com/amaline/cu-bot-scripts.git hubot-team
 
 # CMD HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN ./bin/hubot --adapter slack --alias !
 CMD ./run.sh
