@@ -27,6 +27,7 @@ WORKDIR /home/hubot
 RUN yo hubot --owner "Al Maline <amaline@yahoo.com>" --name="cubot" --description="Corporate University Robot" --adapter=slack
 
 ADD ./run.sh /home/hubot/
+ADD ./hook.js /home/hubot/
 ADD ./external-scripts.json /home/hubot/external-scripts.new
 #RUN chown hubot.hubot /home/hubot/run.sh /home/hubot/external-scripts.json
 RUN cd /home/hubot && ls -l /home/hubot
